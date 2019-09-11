@@ -18,12 +18,22 @@
     <!-- JS: HANDLEBARS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.0/handlebars.min.js" charset="utf-8"></script>
     <title>Grafico</title>
+    <?php $level=$_GET['access']; ?>
   </head>
   <body>
-      <canvas id="myChartline"></canvas>
-
-
-
+  
+    <?php
+      if($level === 'guest'){
+        echo "<canvas id='line-guest'>"."</canvas>";
+      }else if ($level === 'employee'){
+        echo "<canvas id='line-guest'></canvas>";
+        echo "<canvas id='pie-employ'></canvas>";
+      }else if($level === 'c-level'){
+        echo "<canvas id='line-guest'></canvas>";
+        echo "<canvas id='pie-employ'></canvas>";
+        echo "<canvas id='line-c-level'></canvas>";
+      }
+    ?>
 
       <script src="script.js" type="text/javascript"></script>
   </body>

@@ -1,15 +1,19 @@
 function init(){
   console.log("hello world");
-  getgraph();
+  getgraph(y='datam1.php',x='line-guest');
+  getgraph(y='datam2.php',x='pie-employ');
+  getgraph(y='datam3.php',x='line-c-level');
 }
 $(document).ready(init);
-function getgraph(){
+function getgraph(y,x){
+  var url=y;
   $.ajax({
-    url:'fulldatabase.php',
+    url:url,
     method:"GET",
     success:function (data){
       console.log(data);
-      printgraph(data);
+      printgraph(data,x);
+      console.log(x);
     },
     error:function (error){
       alert("errore");
@@ -17,6 +21,7 @@ function getgraph(){
     }
   });
 }
+
 function getlabels(data){
   return data.fatturato.labels;
 }
@@ -34,12 +39,12 @@ function gettype(data){
 function getlabel(data){
   return data.fatturato.label;
 }
-function printgraph(data){
+function printgraph(data,idcanvas){
   var arrmonthlabel=getlabels(data);
   var amount=getdata(data);
   var type = gettype(data);
   var labels =getlabel(data);
-  var ctx = document.getElementById('myChartline').getContext('2d');
+  var ctx = document.getElementById(idcanvas).getContext('2d');
   var myChart = new Chart(ctx, {
     type:type,
     data: {
@@ -50,7 +55,7 @@ function printgraph(data){
         backgroundColor:"rgba(0,139,139,0.2)",
         borderColor: 'rgba(0,0,139,1)',
         borderWidth: 1
-    }]
+    }],
 },
 });
 
