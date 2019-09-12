@@ -31,24 +31,30 @@ function printgraphpie(data){
 function populatecanvas(data){
   var type = data['type'];
   var subData = data['data'];
-  var label =Object.keys(subData);
+  var label = data['label'];
+  var labels = Object.keys(subData);
   var values = Object.values(subData);
   var idcanvas = data['id_canvas'];
+  var color = data['color'];
+  var bgColor = Object.values(color['backgroundColor']);
+  var bdColor = Object.values(color['border-color']);
   console.log(type);
   console.log(subData);
   console.log(label);
   console.log(values);
   console.log(idcanvas);
+  console.log(bgColor);
+  console.log(bdColor);
   var ctx = document.getElementById(idcanvas).getContext('2d');
   var myChart = new Chart(ctx, {
     type:type,
     data: {
-    labels: label,
+    labels: labels,
     datasets: [{
-        label: 'vendite',
+        label:label,
         data: values,
-        backgroundColor:"rgba(0,139,139,0.2)",
-        borderColor: 'rgba(0,0,139,1)',
+        backgroundColor:bgColor,
+        borderColor: bdColor,
         borderWidth: 1
     }
   ],

@@ -3,6 +3,7 @@
     'fatturato' =>[
       'type' =>'line',
       'id_canvas'=>'line-graph-month',
+      'label'=>'Vendite-Per-Mese',
       'data' =>[
         'gennaio'=>1000,
         'febbraio'=>1322,
@@ -17,6 +18,14 @@
         'novembre'=>1233,
         'dicembre'=>2322
       ],
+      'color'=>[
+        'backgroundColor' =>[
+          'blue',
+        ],
+        'border-color' =>[
+          'red',
+        ]
+      ]
     ],
     'fatturato_by_agent' =>[
       'type' =>'pie',
@@ -26,6 +35,20 @@
         'Giuseppe'=>4000,
         'Mattia' =>3200,
         'Alberto' =>2300
+      ],
+      'color'=>[
+        'backgroundColor' =>[
+          'blue',
+          'red',
+          'yellow',
+          'brown'
+        ],
+        'border-color' =>[
+          'red',
+          'red',
+          'red',
+          'red'
+        ]
       ]
     ]
 
