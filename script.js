@@ -13,9 +13,9 @@ function getgraph(){
       var fattagentdata = data['fatturato_by_agent'];
       var fattdata = data['fatturato'];
       var fattteam = data['fatturato_by_team'];
-      printgraphline(fattdata);
-      printgraphpie(fattagentdata);
-      printgraphlineteam(fattteam);
+      populatecanvasforsingle(fattdata);
+      populatecanvasforsingle(fattagentdata);
+      populatecanvasformultiple(fattteam);
     },
     error:function(error){
       alert("errore");
@@ -24,15 +24,7 @@ function getgraph(){
 
   });
 }
-function printgraphline(data){
-  populatecanvasforsingle(data);
-}
-function printgraphpie(data){
-  populatecanvasforsingle(data);
-}
-function printgraphlineteam(data){
-  populatecanvasformultiple(data)
-}
+
 
 function populatecanvasforsingle(data){
   var type = data['type'];
