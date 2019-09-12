@@ -90,23 +90,23 @@ function populatecanvasformultiple(data){
       {
         label:label['label1']['label'],
         data: label['label1']['data'],
-        // backgroundColor:bgColor,
-        // borderColor: bdColor,
-        // borderWidth: 1
+        backgroundColor:label['label1']['backgroundColor'],
+        borderColor: label['label1']['border-color'],
+        borderWidth: 1,
     },
     {
       label:label['label2']['label'],
       data:  label['label2']['data'],
-      // backgroundColor:bgColor,
-      // borderColor: bdColor,
-      // borderWidth: 1
+      backgroundColor:label['label2']['backgroundColor'],
+      borderColor: label['label2']['border-color'],
+      borderWidth: 1,
     },
     {
       label:label['label3']['label'],
       data: label['label3']['data'],
-      // backgroundColor:bgColor,
-      // borderColor: bdColor,
-      // borderWidth: 1
+      backgroundColor:label['label3']['backgroundColor'],
+      borderColor: label['label3']['border-color'],
+      borderWidth: 1,
     }
   ],
 },

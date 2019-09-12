@@ -59,22 +59,22 @@
         'label1'=>[
           'label'=>'team1',
           'data' =>[1,0.8,0.7,0.5,0.7,0.8,0.9,0.5,0.6,1,0.3,0.9],
-          'backgroundColor' =>'red',
-          'border-color'=>'black',
+          'backgroundColor' =>'rgba(160,160,160,0.5)',
+          'border-color'=>'blue',
           'border-width'=>1,
         ],
         'label2'=>[
           'label'=>'team2',
           'data' =>[0.3,0.6,0.8,0.3,0.6,0.5,0.8,0.7,0.3,0.5,0.6,1],
-          'backgroundColor' =>'gray',
-          'border-color'=>'black',
+          'backgroundColor' =>'rgba(160,160,160,0.5)',
+          'border-color'=>'green',
           'border-width'=>1,
         ],
         'label3'=>[
           'label'=>'team3',
           'data' =>[0.2,0.1,0.5,0.1,0.6,0.5,0.4,0.6,0.3,0.4,0.5,0.7],
-          'backgroundColor' =>'yellow',
-          'border-color'=>'black',
+          'backgroundColor' =>'rgba(160,160,160,0.5)',
+          'border-color'=>'yellow',
           'border-width'=>1,
         ]
       ]
