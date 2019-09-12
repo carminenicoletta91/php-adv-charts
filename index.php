@@ -21,17 +21,17 @@
     <?php $level=$_GET['access']; ?>
   </head>
   <body>
-  
+
     <?php
       if($level === 'guest'){
-        echo "<canvas id='line-guest'>"."</canvas>";
+        echo "<canvas id='line-graph-month'></canvas>";
       }else if ($level === 'employee'){
-        echo "<canvas id='line-guest'></canvas>";
-        echo "<canvas id='pie-employ'></canvas>";
+        echo "<canvas id='line-graph-month'></canvas>";
+        echo "<canvas id='pie-graph-agent'></canvas>";
       }else if($level === 'c-level'){
-        echo "<canvas id='line-guest'></canvas>";
-        echo "<canvas id='pie-employ'></canvas>";
-        echo "<canvas id='line-c-level'></canvas>";
+        echo "<canvas id='line-graph-month'></canvas>";
+        echo "<canvas id='pie-graph-agent'></canvas>";
+        echo "<canvas id='line-graph-team'></canvas>";
       }
     ?>
 

@@ -1,62 +1,57 @@
 function init(){
   console.log("hello world");
-  getgraph(y='datam1.php',x='line-guest');
-  getgraph(y='datam2.php',x='pie-employ');
-  getgraph(y='datam3.php',x='line-c-level');
+  getgraph()
 }
 $(document).ready(init);
-function getgraph(y,x){
-  var url=y;
+
+
+function getgraph(){
   $.ajax({
-    url:url,
-    method:"GET",
-    success:function (data){
-      console.log(data);
-      printgraph(data,x);
-      console.log(x);
+    url:'api.php',
+    method:'GET',
+    success:function(data){
+      var fattagentdata = data['fatturato_by_agent'];
+      var fattdata = data['fatturato'];
+      printgraphline(fattdata);
+      printgraphpie(fattagentdata);
     },
-    error:function (error){
+    error:function(error){
       alert("errore");
       console.log(error);
     }
+
   });
 }
-
-function getlabels(data){
-  return data.fatturato.labels;
+function printgraphline(data){
+  populatecanvas(data);
 }
-function getdata(data){
-  var amount=[];
-  for (var i = 0; i < data.fatturato.data.length; i++) {
-      amount.push(data.fatturato.data[i]);
-    }
-
-  return amount;
+function printgraphpie(data){
+  populatecanvas(data);
 }
-function gettype(data){
-  return data.fatturato.type;
-}
-function getlabel(data){
-  return data.fatturato.label;
-}
-function printgraph(data,idcanvas){
-  var arrmonthlabel=getlabels(data);
-  var amount=getdata(data);
-  var type = gettype(data);
-  var labels =getlabel(data);
+function populatecanvas(data){
+  var type = data['type'];
+  var subData = data['data'];
+  var label =Object.keys(subData);
+  var values = Object.values(subData);
+  var idcanvas = data['id_canvas'];
+  console.log(type);
+  console.log(subData);
+  console.log(label);
+  console.log(values);
+  console.log(idcanvas);
   var ctx = document.getElementById(idcanvas).getContext('2d');
   var myChart = new Chart(ctx, {
     type:type,
     data: {
-    labels: arrmonthlabel,
+    labels: label,
     datasets: [{
-        label: labels,
-        data: amount,
+        label: 'vendite',
+        data: values,
         backgroundColor:"rgba(0,139,139,0.2)",
         borderColor: 'rgba(0,0,139,1)',
         borderWidth: 1
-    }],
+    }
+  ],
 },
 });
-
 }
